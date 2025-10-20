@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Gil Eventos - Locação de itens para festas e buffet completo com atendimento personalizado para o seu evento.">
+    <title>Gil Eventos | Locação e Buffet</title>
+    <link rel="icon" type="image/png" href="assets/images/logo.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&family=Playfair+Display:wght@600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body>
+    <header class="top-bar">
+        <div class="brand">
+            <img src="assets/images/logo.png" alt="Gil Eventos logo" class="brand__logo">
+            <div class="brand__text">
+                <span class="brand__name">Gil Eventos</span>
+                <span class="brand__tagline">Locação e Buffet</span>
+            </div>
+        </div>
+        <nav class="nav" id="main-nav">
+            <a href="#sobre">Sobre</a>
+            <a href="#servicos">Serviços</a>
+            <a href="#diferenciais">Diferenciais</a>
+            <a href="#galeria">Galeria</a>
+            <a href="#contato" class="nav__cta">Contato</a>
+        </nav>
+        <button class="nav-toggle" id="menu-toggle" aria-label="Abrir menu" aria-controls="main-nav">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+    </header>
+
+    <main>
+        <section class="hero" id="sobre">
+            <div class="hero__overlay"></div>
+            <div class="hero__content">
+                <h1>Experiências saborosas e eventos impecáveis</h1>
+                <p>
+                    A Gil Eventos leva sofisticação e aconchego para a sua celebração com locação completa de itens,
+                    buffet de dar água na boca e uma equipe pronta para cuidar de cada detalhe.
+                </p>
+                <div class="hero__actions">
+                    <a class="btn btn--primary" href="https://wa.me/5511987654321" target="_blank" rel="noopener">
+                        Solicitar orçamento
+                    </a>
+                    <a class="btn btn--ghost" href="#galeria">Conheça nosso trabalho</a>
+                </div>
+                <div class="hero__chips">
+                    <span>Buffet personalizado</span>
+                    <span>Locação premium</span>
+                    <span>Atendimento em São Paulo e região</span>
+                </div>
+            </div>
+        </section>
+
+        <section class="highlights" id="diferenciais">
+            <div class="container">
+                <h2>Por que escolher a Gil Eventos?</h2>
+                <div class="highlight-cards">
+                    <article class="card">
+                        <h3>Curadoria completa</h3>
+                        <p>Mais de 200 itens entre louças, taças, mesas e cadeiras para compor o ambiente dos seus sonhos.</p>
+                    </article>
+                    <article class="card">
+                        <h3>Buffet de assinatura</h3>
+                        <p>Cardápios personalizados com ingredientes frescos e apresentações que encantam.</p>
+                    </article>
+                    <article class="card">
+                        <h3>Equipe apaixonada</h3>
+                        <p>Consultoria especializada, montagem e suporte durante todo o evento.</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section class="services" id="servicos">
+            <div class="container services__grid">
+                <div>
+                    <h2>Locação para eventos sociais e corporativos</h2>
+                    <p>
+                        Criamos cenários sob medida com peças sofisticadas e em perfeito estado. Trabalhamos com
+                        pacotes flexíveis que se adaptam ao porte do seu evento.
+                    </p>
+                    <ul>
+                        <li>Louças finas, taças, sousplats e talheres especiais</li>
+                        <li>Mesas, cadeiras, bistrôs, toalhas e itens de ambientação</li>
+                        <li>Montagem rápida e retirada alinhada à sua logística</li>
+                    </ul>
+                </div>
+                <div>
+                    <h2>Buffet completo com sabor caseiro</h2>
+                    <p>
+                        Do coquetel ao jantar, nossos chefs assinam menus variados, contemplando opções clássicas,
+                        veganas e sem glúten para encantar todos os convidados.
+                    </p>
+                    <ul>
+                        <li>Ilhas gastronômicas, finger foods e pratos quentes</li>
+                        <li>Drinks, sobremesas e café especial</li>
+                        <li>Equipe de atendimento treinada e uniforme</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section class="cta-banner">
+            <div class="container cta-banner__content">
+                <div>
+                    <h2>Transforme seu evento em um momento inesquecível</h2>
+                    <p>Conte com um time que une experiência, bom gosto e soluções completas em um só lugar.</p>
+                </div>
+                <a class="btn btn--primary" href="mailto:contato@gileventos.com.br">
+                    Fale com a nossa equipe
+                </a>
+            </div>
+        </section>
+
+        <section class="gallery" id="galeria">
+            <div class="container">
+                <h2>Galeria de eventos realizados</h2>
+                <p>Registros autênticos das montagens, buffet e locações assinadas pela nossa equipe.</p>
+                <div class="gallery__controls">
+                    <div class="gallery__buttons" id="gallery-buttons" role="tablist" aria-label="Categorias da galeria"></div>
+                    <p class="gallery__hint">Selecione uma categoria para navegar pelas fotos no carrossel.</p>
+                </div>
+                <div class="gallery__viewer is-hidden" id="gallery-viewer" aria-live="polite">
+                    <div class="carousel" role="group" aria-roledescription="carrossel">
+                        <button class="carousel__nav carousel__nav--prev" id="carousel-prev" type="button" aria-label="Foto anterior">
+                            &#10094;
+                        </button>
+                        <div class="carousel__frame">
+                            <img id="carousel-image" src="" alt="">
+                        </div>
+                        <button class="carousel__nav carousel__nav--next" id="carousel-next" type="button" aria-label="Próxima foto">
+                            &#10095;
+                        </button>
+                    </div>
+                    <div class="carousel__meta">
+                        <div>
+                            <h3 id="carousel-title"></h3>
+                            <p id="carousel-description"></p>
+                        </div>
+                        <div class="carousel__counter" id="carousel-counter"></div>
+                    </div>
+                    <a class="carousel__open" id="carousel-open" href="#" target="_blank" rel="noopener">
+                        Ver imagem em tamanho maior
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <section class="testimonials">
+            <div class="container">
+                <h2>O que nossos clientes dizem</h2>
+                <div class="testimonial__grid">
+                    <blockquote>
+                        <p>“O atendimento foi impecável do início ao fim. A montagem ficou linda e o buffet recebeu muitos elogios.”</p>
+                        <cite>Patrícia M. · Festa de debutante</cite>
+                    </blockquote>
+                    <blockquote>
+                        <p>“Entregaram tudo no prazo, com qualidade excelente. Voltaremos a contratar para os eventos corporativos.”</p>
+                        <cite>Ricardo F. · Evento empresarial</cite>
+                    </blockquote>
+                    <blockquote>
+                        <p>“Equipe muito atenciosa, desde a escolha das peças até o serviço durante o jantar. Recomendo de olhos fechados!”</p>
+                        <cite>Ana Paula S. · Casamento intimista</cite>
+                    </blockquote>
+                </div>
+            </div>
+        </section>
+
+        <section class="contact" id="contato">
+            <div class="container contact__grid">
+                <div>
+                    <h2>Vamos conversar sobre o seu evento?</h2>
+                    <p>Envie uma mensagem com a data, o tipo de celebração e o número de convidados.</p>
+                    <ul class="contact__info">
+                        <li><strong>Telefone:</strong> <a href="tel:+551155554321">(11) 5555-4321</a></li>
+                        <li><strong>WhatsApp:</strong> <a href="https://wa.me/5511987654321" target="_blank" rel="noopener">(11) 98765-4321</a></li>
+                        <li><strong>E-mail:</strong> <a href="mailto:contato@gileventos.com.br">contato@gileventos.com.br</a></li>
+                        <li><strong>Endereço:</strong> São Paulo · SP</li>
+                    </ul>
+                </div>
+                <form class="contact__form" action="https://formsubmit.co/contato@gileventos.com.br" method="POST">
+                    <input type="hidden" name="_subject" value="Novo contato via site - Gil Eventos">
+                    <input type="hidden" name="_captcha" value="false">
+                    <label>
+                        Nome
+                        <input type="text" name="Nome" placeholder="Seu nome completo" required>
+                    </label>
+                    <label>
+                        E-mail
+                        <input type="email" name="Email" placeholder="seuemail@exemplo.com" required>
+                    </label>
+                    <label>
+                        Telefone ou WhatsApp
+                        <input type="tel" name="Telefone" placeholder="(11) 91234-5678">
+                    </label>
+                    <label>
+                        Detalhes do evento
+                        <textarea name="Mensagem" rows="4" placeholder="Data, tipo de evento, número de convidados..." required></textarea>
+                    </label>
+                    <button type="submit" class="btn btn--primary">Enviar mensagem</button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container footer__content">
+            <p>&copy; <span id="current-year"></span> Gil Eventos · Locação e Buffet.</p>
+            <div class="footer__links">
+                <a href="https://www.instagram.com/" target="_blank" rel="noopener">Instagram</a>
+                <a href="https://www.facebook.com/" target="_blank" rel="noopener">Facebook</a>
+                <a href="https://wa.me/5511987654321" target="_blank" rel="noopener">WhatsApp</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="assets/js/main.js" defer></script>
+</body>
+</html>
