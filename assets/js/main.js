@@ -232,6 +232,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
     let currentCollectionIndex = -1;
     let currentSlideIndex = 0;
+    let autoPlayTimer = null;
+    const AUTO_PLAY_INTERVAL_MS = 1500;
 
     if (
         galleryButtonsContainer &&
@@ -313,6 +315,46 @@ document.addEventListener("DOMContentLoaded", () => {
             updateViewer();
         };
 
+        const showNextWithAutoCategory = () => {
+            if (currentCollectionIndex < 0) {
+                return;
+            }
+
+            const collection = galleryCollections[currentCollectionIndex];
+            const isLastSlide = currentSlideIndex === collection.images.length - 1;
+
+            if (isLastSlide) {
+                const nextCollectionIndex = (currentCollectionIndex + 1) % galleryCollections.length;
+                setActiveCollection(nextCollectionIndex);
+                return;
+            }
+
+            showNext();
+        };
+
+        const stopAutoPlay = () => {
+            if (autoPlayTimer) {
+                window.clearInterval(autoPlayTimer);
+                autoPlayTimer = null;
+            }
+        };
+
+        const startAutoPlay = () => {
+            stopAutoPlay();
+
+            if (currentCollectionIndex < 0) {
+                return;
+            }
+
+            autoPlayTimer = window.setInterval(() => {
+                showNextWithAutoCategory();
+            }, AUTO_PLAY_INTERVAL_MS);
+        };
+
+        const restartAutoPlay = () => {
+            startAutoPlay();
+        };
+
         galleryCollections.forEach((collection, index) => {
             const button = document.createElement("button");
             button.type = "button";
@@ -323,6 +365,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
             button.addEventListener("click", () => {
                 setActiveCollection(index);
+                restartAutoPlay();
             });
 
             button.addEventListener("keydown", (event) => {
@@ -337,14 +380,22 @@ document.addEventListener("DOMContentLoaded", () => {
                 if (event.key === "Enter" || event.key === " ") {
                     event.preventDefault();
                     setActiveCollection(index);
+                    restartAutoPlay();
                 }
             });
 
             galleryButtonsContainer.appendChild(button);
         });
 
-        nextButton.addEventListener("click", showNext);
-        prevButton.addEventListener("click", showPrevious);
+        nextButton.addEventListener("click", () => {
+            showNextWithAutoCategory();
+            restartAutoPlay();
+        });
+
+        prevButton.addEventListener("click", () => {
+            showPrevious();
+            restartAutoPlay();
+        });
 
         document.addEventListener("keydown", (event) => {
             if (galleryViewer.classList.contains("is-hidden")) {
@@ -352,12 +403,17 @@ document.addEventListener("DOMContentLoaded", () => {
             }
 
             if (event.key === "ArrowRight") {
-                showNext();
+                showNextWithAutoCategory();
+                restartAutoPlay();
             }
 
             if (event.key === "ArrowLeft") {
                 showPrevious();
+                restartAutoPlay();
             }
         });
+
+        setActiveCollection(0);
+        startAutoPlay();
     }
 });
